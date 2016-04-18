@@ -1,0 +1,4 @@
+services:
+  user_manager:
+    class: IronWeb\ArticlesBundle\DependencyInjection\UserManager
+    arguments: ["@service_container"]

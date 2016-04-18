@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Insert a new Article with Ajax!</h1>
+    {{ form(form) }}
+    <div class="message-box">
+        <pre></pre>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+        $('form').submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: "/api/v1/articles", // TODO: Replace this with FOSRouting to avoid static routing
+                type: "POST",
+                data: {
+                    title: $("form #article_title").val(),
+                    body: $("form #article_body").val(),
+                    author_email: $("form #article_author_email").val()
+                },
+                success: function(data){
+                    $('.message-box pre').html(JSON.stringify(data));
+                }
+            });
+        });
+    </script>
+{% endblock %}

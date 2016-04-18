@@ -1,0 +1,13 @@
+iron_web_frontend:
+    resource: "@IronWebFrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+iron_web_articles:
+    resource: "@IronWebArticlesBundle/Resources/config/routes.yml"
+    type:     rest
+    prefix:   /api
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

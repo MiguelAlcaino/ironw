@@ -1,0 +1,10 @@
+articles_api:
+    type: rest
+    prefix: /v1
+    resource: "@IronWebArticlesBundle/Controller/ArticleAPIController.php"
+    name_prefix:  api_1_ # naming collision
+users_api:
+    type: rest
+    prefix: /v1
+    resource: "@IronWebArticlesBundle/Controller/UserAPIController.php"
+    name_prefix:  api_1_ # naming collision

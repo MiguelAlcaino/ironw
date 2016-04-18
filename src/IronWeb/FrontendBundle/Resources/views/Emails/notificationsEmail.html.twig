@@ -1,0 +1,10 @@
+<html>
+    <body>
+        Hey! You have notifications that you have not seen in more than 24 hours!<br>
+        Click here to check them: <a href="{{ path('frontend_user_notifications', {'id': user.id}) }}">
+            {{ url("frontend_user_notifications", {
+                id: user.id
+            }) }}
+        </a>
+    </body>
+</html>

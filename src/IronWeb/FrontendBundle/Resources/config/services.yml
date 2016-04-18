@@ -1,0 +1,4 @@
+services:
+#    iron_web_frontend.example:
+#        class: IronWeb\FrontendBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

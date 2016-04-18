@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    [MARK AS READ ALL THE NOTIFICATIONS] <br>
+
+    <div>
+        {% for article in articles %}
+            <div class="article">
+                <div>{{ article.title }}</div>
+                <div>{{ article.body }}</div>
+                {% for answer in article.answers %}
+                    <div class="answer {% if not answer.seenByArticleAuthor %}new-notification{% endif %}">
+                        <div>{{ answer.user.email }} - {{ answer.createdAt|date('d-m-Y H:i') }}:</div>
+                        <div>{{ answer.body }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        .answer{
+            background-color: #5eb5e0;
+        }
+        .answer.new-notification{
+            background-color: red;
+        }
+    </style>
+{% endblock %}
